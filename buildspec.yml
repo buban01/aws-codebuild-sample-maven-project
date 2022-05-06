@@ -1,6 +1,13 @@
 version: 0.1
 
 phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+    commands:
+       - apt-get update -y
+       - apt-get install -y maven
+phases:
   build:
     commands:
       - echo Build started on `date`
