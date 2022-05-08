@@ -7,17 +7,18 @@ phases:
     commands:
        - apt-get update -y
        - apt-get install -y maven
-phases:
-  build:
+pre_build:
+  commands:
+      - echo Nothing to do in the pre_build phase..
+  
+build:
     commands:
       - echo Build started on `date`
       - mvn test
-  post_build:
+post_build:
     commands:
       - echo Build completed on `date`
       - mvn package
 artifacts:
   files:
-    - cd target/
-    - ls
     - target/aws-build-sample-maven-project-0.0.1-SNAPSHOT.jar
